@@ -14,5 +14,11 @@
             this.date = date;
             this.value = value;
         }
+
+        public NotaFiscal(string emitter, DateTime date)
+        {
+            this.emitter = emitter;
+            this.date = date;
+        }
     }
 }
