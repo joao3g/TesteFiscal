@@ -32,7 +32,7 @@ namespace Fiscal.Model
             }
         }
 
-        public async void connect()
+        public void connect()
         {
 
             string connString =
@@ -44,10 +44,8 @@ namespace Fiscal.Model
                         Port,
                         Password);
 
-            await using var dataSource = NpgsqlDataSource.Create(connString);
-            await using var connection = await dataSource.OpenConnectionAsync();
-
-            this.connection = connection;
+            this.connection = new NpgsqlConnection(connString);
+            this.connection.Open();
         }
     }
 }
